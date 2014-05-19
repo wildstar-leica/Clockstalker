@@ -1,6 +1,9 @@
 Clockstalker
 ============
 
+![Clockstalker](http://i.imgur.com/Qb3wcmH.png) ![Hover to see options](http://i.imgur.com/WQM9btk.png)
+
+
 Lightweight clock addon with 12/24h modes and position locking.
 
 - Mouse over Clockstalker to show controls.
