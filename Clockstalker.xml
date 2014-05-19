@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Forms>
+    <Pixie LAnchorPoint="0" LAnchorOffset="10" TAnchorPoint="0" TAnchorOffset="10" RAnchorPoint="0" RAnchorOffset="300" BAnchorPoint="0" BAnchorOffset="225" BGColor="UI_WindowBGDefault" Font="Default" TextColor="UI_WindowTextDefault" Text="" TextId="CRB_Time" Line="0"/>
+    <Pixie LAnchorPoint="0" LAnchorOffset="10" TAnchorPoint="0" TAnchorOffset="10" RAnchorPoint="0" RAnchorOffset="300" BAnchorPoint="0" BAnchorOffset="225" BGColor="UI_WindowBGDefault" Font="Default" TextColor="UI_WindowTextDefault" Text="" Line="0"/>
+    <Form Class="Window" LAnchorPoint="0" LAnchorOffset="573" TAnchorPoint="0" TAnchorOffset="289" RAnchorPoint="0" RAnchorOffset="759" BAnchorPoint="0" BAnchorOffset="394" RelativeToClient="1" Font="Default" Text="" BGColor="vdarkgray" TextColor="UI_WindowTextDefault" Template="Default" TooltipType="OnCursor" Name="TimeForm" Border="0" Picture="0" SwallowMouseClicks="1" Moveable="0" Escapable="0" Overlapped="0" TooltipColor="" TextId="" Sprite="" IgnoreMouse="0" Tooltip="" NoClip="1">
+        <Control Class="Window" LAnchorPoint="0" LAnchorOffset="33" TAnchorPoint="0" TAnchorOffset="67" RAnchorPoint="1" RAnchorOffset="-39" BAnchorPoint="1" BAnchorOffset="-10" RelativeToClient="1" Font="Default" Text="" BGColor="UI_WindowBGDefault" TextColor="UI_WindowTextDefault" Template="Default" TooltipType="OnCursor" Name="controls" TooltipColor="" Sprite="" Picture="1" IgnoreMouse="0" Visible="0" Sizable="0">
+            <Pixie LAnchorPoint="0" LAnchorOffset="20" TAnchorPoint="0" TAnchorOffset="0" RAnchorPoint="0" RAnchorOffset="100" BAnchorPoint="0" BAnchorOffset="100" Sprite="CRB_Basekit:kitBtn_List_HoloSortDisabled" BGColor="white" TextColor="black" Rotation="0" Font="Default"/>
+            <Control Class="Button" Base="CRB_ActionBarSprites:ActionBar_LockBarButton" Font="DefaultButton" ButtonType="Check" RadioGroup="" LAnchorPoint="0" LAnchorOffset="80" TAnchorPoint="0" TAnchorOffset="3" RAnchorPoint="0" RAnchorOffset="113" BAnchorPoint="0" BAnchorOffset="55" DT_VCENTER="1" DT_CENTER="1" BGColor="UI_BtnBGDefault" TextColor="UI_BtnTextDefault" NormalTextColor="UI_BtnTextDefault" PressedTextColor="UI_BtnTextDefault" FlybyTextColor="UI_BtnTextDefault" PressedFlybyTextColor="UI_BtnTextDefault" DisabledTextColor="UI_BtnTextDefault" TooltipType="OnCursor" Name="moveLock" TooltipColor="" Picture="0" Sprite="" WindowSoundTemplate="ToggleDigi01" Visible="1" DrawAsCheckbox="0" NoClip="0">
+                <Event Name="ButtonCheck" Function="OnUnlockMove"/>
+                <Event Name="ButtonUncheck" Function="OnLockMove"/>
+            </Control>
+            <Control Class="Button" Base="" Font="CRB_Header9" ButtonType="Check" RadioGroup="" LAnchorPoint="0" LAnchorOffset="53" TAnchorPoint="0" TAnchorOffset="4" RAnchorPoint="0" RAnchorOffset="85" BAnchorPoint="0" BAnchorOffset="20" DT_VCENTER="0" DT_CENTER="1" BGColor="UI_BtnBGDefault" TextColor="UI_BtnTextDefault" NormalTextColor="cyan" PressedTextColor="cyan" FlybyTextColor="xkcdAquaBlue" PressedFlybyTextColor="xkcdAquaBlue" DisabledTextColor="UI_BtnTextDefault" TooltipType="OnCursor" Name="12h" TooltipColor="" Sprite="" Text="12h" TextId="" WindowSoundTemplate="ToggleDigi01" Picture="0">
+                <Event Name="ButtonCheck" Function="OnSet24h"/>
+                <Event Name="ButtonUncheck" Function="OnSet12h"/>
+            </Control>
+        </Control>
+        <Control Class="EditBox" LAnchorPoint="0" LAnchorOffset="37" TAnchorPoint="0" TAnchorOffset="36" RAnchorPoint="0" RAnchorOffset="144" BAnchorPoint="0" BAnchorOffset="60" RelativeToClient="1" Font="CRB_InterfaceLarge_BBO" Text="Loading" BGColor="vdarkgray" TextColor="UI_WindowTextDefault" Template="Default" TooltipType="OnCursor" Name="Time" TooltipColor="" TextId="" DT_VCENTER="1" DT_CENTER="1" Sprite="" NewWindowDepth="1" ReadOnly="1" Tooltip="" Sizable="0" IgnoreMouse="1"/>
+        <Control Class="Window" LAnchorPoint="0" LAnchorOffset="0" TAnchorPoint="0" TAnchorOffset="0" RAnchorPoint="1" RAnchorOffset="0" BAnchorPoint="1" BAnchorOffset="-5" RelativeToClient="1" Font="Default" Text="" BGColor="vdarkgray" TextColor="UI_WindowTextDefault" Template="Holo_Medium" TooltipType="OnCursor" Name="BackdropForm" Border="1" Picture="1" SwallowMouseClicks="1" Moveable="0" Escapable="0" Overlapped="0" TooltipColor="" TextId="" Sprite="" IgnoreMouse="1" Sizable="0"/>
+        <Event Name="MouseEnter" Function="OnShowControls"/>
+        <Event Name="MouseExit" Function="OnHideControls"/>
+    </Form>
+</Forms>
