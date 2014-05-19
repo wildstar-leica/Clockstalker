@@ -10,7 +10,7 @@ Lightweight clock addon with 12/24h modes and position locking.
 
 
 License
-=====================
+-----------
 
 The MIT License (MIT)
 
