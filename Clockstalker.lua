@@ -34,6 +34,7 @@ function Clockstalker:new(o)
 	self.settings.bIsOpen = true
 	self.settings.debug = false
 	self.settings.format = 12
+	self.settings.useSeconds = true
 	self.settings.locked = true
     -- initialize variables here
 
@@ -101,6 +102,12 @@ function Clockstalker:OnDocLoaded()
 			self:OnSet24h()
 		end
 		
+		if self.settings.useSeconds then
+			self:OnShowSeconds()
+		else
+			self:OnHideSeconds()
+		end
+		
 		if self.settings.locked then
 			self:OnLockMove(self.wndMain)
 		else 
@@ -157,6 +164,7 @@ function Clockstalker:OnTimer()
 	if self.settings.bIsOpen then
 		local t = GameLib:GetLocalTime()
 		local mer = ''
+		local seconds = ''
 		if self.settings.format == 12 then		
 			if t.nHour > 12 then
 				t.nHour = t.nHour % 12
@@ -166,8 +174,10 @@ function Clockstalker:OnTimer()
 			end
 			if t.nHour == 0 then t.nHour = 12 end
 		end
-		
-		local out = tostring(t.nHour) .. TS .. string.lpad(tostring(t.nMinute),2,'0') .. TS .. string.lpad(tostring(t.nSecond),2,'0') .. mer
+		if self.settings.useSeconds then
+			seconds = TS .. string.lpad(tostring(t.nSecond),2,'0')
+		end
+		local out = tostring(t.nHour) .. TS .. string.lpad(tostring(t.nMinute),2,'0') .. seconds .. mer
 		self.wndMain:FindChild("Time"):SetText(out)
 	
 	end
@@ -199,7 +209,8 @@ function Clockstalker:OnSave(eType)
 		tLocation = locWindowLocation and locWindowLocation:ToTable() or nil,
 		nVersion = knVersion,
 		bIsOpen = self.settings.bIsOpen,
-		format = self.settings.format
+		format = self.settings.format,
+		useSeconds = self.settings.useSeconds
 		
 	}
 	return tSave
@@ -211,7 +222,8 @@ function Clockstalker:OnRestore(eType, tSavedData)
 		if tSavedData.tLocation then
 			self.locSavedWindowLoc = WindowLocation.new(tSavedData.tLocation)
 			self.settings.bIsOpen = tSavedData.bIsOpen
-			self.settings.format = tSavedData.format			
+			self.settings.format = tSavedData.format
+			self.settings.useSeconds = tSavedData.useSeconds			
 		end
 	end
 end
@@ -229,6 +241,16 @@ function Clockstalker:OnSet24h( wndHandler, wndControl, eMouseButton )
 		wndControl = wndControl or self.wndMain:FindChild('12h')
 		wndControl:SetText("24h")
 		self.settings.format = 24
+end
+
+function Clockstalker:OnShowSeconds( wndHandler, wndControl, eMouseButton )
+		self.wndMain:FindChild("showSeconds"):SetCheck(false)
+		self.settings.useSeconds = true
+end
+
+function Clockstalker:OnHideSeconds( wndHandler, wndControl, eMouseButton )
+		self.wndMain:FindChild("showSeconds"):SetCheck(true)
+		self.settings.useSeconds = false
 end
 
 function Clockstalker:OnLockMove( wndHandler, wndControl, eMouseButton )
